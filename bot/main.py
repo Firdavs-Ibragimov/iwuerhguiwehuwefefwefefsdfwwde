@@ -1,6 +1,11 @@
-# bot.py — Academy Pro Network Sertifikat Bot (PDF + QR, faqat local)
-
+# ================== IMPORTS ==================
 import os
+from dotenv import load_dotenv
+
+# Load .env
+load_dotenv()
+TOKEN = os.getenv("TOKEN")
+
 import asyncio
 import base64
 import json
@@ -15,15 +20,14 @@ import qrcode
 import telebot
 from telebot import types
 
-# ================== TOKEN ==================
-TOKEN = "8274353710:AAE9ugiSUWtbJdRKja-BeDwxccRLJKPvwwg"
+# ================== BOT ==================
 bot = telebot.TeleBot(TOKEN)
 
 # ================== PATHS ==================
 BASE_DIR = os.path.dirname(__file__)
 TEMPLATE_PNG = os.path.join(BASE_DIR, "template.png")
 TEMPLATE_HTML = os.path.join(BASE_DIR, "template.html")
-OUTPUT_DIR = os.path.join(BASE_DIR, "../certificates/certs")
+OUTPUT_DIR = os.path.join(BASE_DIR, "outputs")
 USED_IDS_FILE = os.path.join(BASE_DIR, "used_ids.json")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -33,7 +37,6 @@ with open(TEMPLATE_PNG, "rb") as f:
 
 with open(TEMPLATE_HTML, "r", encoding="utf-8") as f:
     HTML_TEMPLATE = f.read()
-
 # ================== COURSES ==================
 COURSES = {
     "web": "WEB DASTURLASH",
