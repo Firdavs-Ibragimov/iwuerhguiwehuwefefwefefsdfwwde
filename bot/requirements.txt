@@ -1,0 +1,6 @@
+pyTelegramBotAPI
+jinja2
+playwright
+qrcode
+playwright install
+telegraph

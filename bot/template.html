@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        background: #0e1621;
+      }
+
+      .page {
+        width: 297mm;
+        height: 210mm;
+        background: url("{{ background }}") center/cover no-repeat !important;
+        position: relative;
+        font-family: "Montserrat", sans-serif;
+        color: #000;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      .name {
+        position: absolute;
+        top: 90mm;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 50pt;
+        font-weight: 900;
+        letter-spacing: 2px;
+        white-space: nowrap;
+        text-align: center;
+      }
+      .text1 {
+        position: absolute;
+        top: 115mm;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 25pt;
+        font-weight: 700;
+        text-align: center;
+        width: 88%;
+      }
+      .course {
+        position: absolute;
+        top: 124mm;
+        left: 65%;
+        transform: translateX(-50%);
+        font-size: 30pt;
+        font-weight: 900;
+        color: #8bc34a !important;
+        text-align: center;
+        width: 70%;
+      }
+      .text2 {
+        position: absolute;
+        top: 126mm;
+        left: 30%;
+        transform: translateX(-50%);
+        font-size: 25pt;
+        font-weight: 700;
+        color: #000 !important;
+        text-align: center;
+        width: 90%;
+      }
+      .text2-long {
+        left: 24% !important;
+      }
+      .text3 {
+        position: absolute;
+        top: 134mm;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 25pt;
+        font-weight: 700;
+        line-height: 1.45;
+        text-align: center;
+        width: 100%;
+      }
+      .taqdir {
+        position: absolute;
+        top: 145mm;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 25pt;
+        font-weight: 700;
+        text-align: center;
+        width: 90%;
+      }
+
+      /* Sana uchun */
+      .footer {
+        position: absolute;
+        bottom: 18mm;
+        right: 79mm;
+        font-size: 16pt;
+        font-weight: 600;
+        text-align: right;
+        opacity: 1; /* TUZATILDI: opacity 1 qilindi */
+        color: #000; /* qora rang */
+      }
+
+      .qr {
+        position: absolute;
+        bottom: 3mm;
+        right: 31mm;
+        width: 38mm;
+        height: 38mm;
+        background: white;
+        padding: 6mm;
+        border-radius: 9px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="name">{{ name }}</div>
+      <div class="text1">USHBU SERTIFIKAT “ACADEMY PRO NETWORK” IT</div>
+      <div class="course">{{ course }}</div>
+      <div
+        class="text2 {% if course == 'KOMPYUTER SAVODXONLIGI' %}text2-long{% endif %}"
+      >
+        AKADEMIYASIDA<br />
+      </div>
+      <div class="text3">KURSINI MUVAFFAQIYATLI YAKUNLAGANI UCHUN</div>
+      <div class="taqdir">USHBU SERTIFIKAT BILAN TAQDIRLANADI</div>
+      <div class="footer">{{ date }}</div>
+      <!-- Sana endi chiqadi -->
+      <img class="qr" src="{{ qr_code }}" />
+    </div>
+  </body>
+</html>
